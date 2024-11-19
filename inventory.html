@@ -1,0 +1,637 @@
+<!-- 
+* Copyright 2016 Carlos Eduardo Alfaro Orellana
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Inventory</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/sweetalert2.css">
+	<link rel="stylesheet" href="css/material.min.css">
+	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
+	<script src="js/material.min.js" ></script>
+	<script src="js/sweetalert2.min.js" ></script>
+	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
+	<script src="js/main.js" ></script>
+</head>
+<body>
+	<!-- Notifications area -->
+	<section class="full-width container-notifications">
+		<div class="full-width container-notifications-bg btn-Notification"></div>
+	    <section class="NotificationArea">
+	        <div class="full-width text-center NotificationArea-title tittles">Notificaciones <i class="zmdi zmdi-close btn-Notification"></i></div>
+	        <a href="#" class="Notification" id="notifation-unread-1">
+	            <div class="Notification-icon"><i class="zmdi zmdi-accounts-alt bg-info"></i></div>
+	            <div class="Notification-text">
+	                <p>
+	                    <i class="zmdi zmdi-circle"></i>
+	                    <strong>Registro de nuevo usuario</strong> 
+	                    <br>
+	                    <small>Justo Ahora</small>
+	                </p>
+	            </div>
+	        	<div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-1">Notificacion como no leida</div> 
+	        </a>
+	        <a href="#" class="Notification" id="notifation-read-1">
+	            <div class="Notification-icon"><i class="zmdi zmdi-cloud-download bg-primary"></i></div>
+	            <div class="Notification-text">
+	                <p>
+	                    <i class="zmdi zmdi-circle-o"></i>
+	                    <strong>Nuevas Actualizaciones</strong> 
+	                    <br>
+	                    <small>30 Mins </small>
+	                </p>
+	            </div>
+	            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-read-1">Notificacion leida</div>
+	        </a>
+	        <a href="#" class="Notification" id="notifation-unread-2">
+	            <div class="Notification-icon"><i class="zmdi zmdi-upload bg-success"></i></div>
+	            <div class="Notification-text">
+	                <p>
+	                    <i class="zmdi zmdi-circle"></i>
+	                    <strong>cargar archivos</strong> 
+	                    <br>
+	                    <small>31 Mins </small>
+	                </p>
+	            </div>
+	            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-2">Notificacion nom leida</div>
+	        </a> 
+	        <a href="#" class="Notification" id="notifation-read-2">
+	            <div class="Notification-icon"><i class="zmdi zmdi-mail-send bg-danger"></i></div>
+	            <div class="Notification-text">
+	                <p>
+	                    <i class="zmdi zmdi-circle-o"></i>
+	                    <strong>Nuevo Correo</strong> 
+	                    <br>
+	                    <small>37 Mins </small>
+	                </p>
+	            </div>
+	            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-read-2">Notificacion leida</div>
+	        </a>
+	        <a href="#" class="Notification" id="notifation-read-3">
+	            <div class="Notification-icon"><i class="zmdi zmdi-folder bg-primary"></i></div>
+	            <div class="Notification-text">
+	                <p>
+	                    <i class="zmdi zmdi-circle-o"></i>
+	                    <strong>Borrar folder</strong> 
+	                    <br>
+	                    <small>1 hora </small>
+	                </p>
+	            </div>
+	            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-read-3">Notificacion leida</div>
+	        </a>  
+	    </section>
+	</section>
+	<!-- navBar -->
+	<div class="full-width navBar">
+		<div class="full-width navBar-options">
+			<i class="zmdi zmdi-more-vert btn-menu" id="btn-menu"></i>	
+			<div class="mdl-tooltip" for="btn-menu">Menu</div>
+			<nav class="navBar-options-list">
+				<ul class="list-unstyle">
+					<li class="btn-Notification" id="notifications">
+						<i class="zmdi zmdi-notifications"></i>
+						<!-- <i class="zmdi zmdi-notifications-active btn-Notification" id="notifications"></i> -->
+						<div class="mdl-tooltip" for="notifications">Notificacion</div>
+					</li>
+					<li class="btn-exit" id="btn-exit">
+						<i class="zmdi zmdi-power"></i>
+						<div class="mdl-tooltip" for="btn-exit">Cerrar Sesion</div>
+					</li>
+					<li class="text-condensedLight noLink" ><small>Nombre de Usuario</small></li>
+					<li class="noLink">
+						<figure>
+							<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+						</figure>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<!-- navLateral -->
+	<section class="full-width navLateral">
+		<div class="full-width navLateral-bg btn-menu"></div>
+		<div class="full-width navLateral-body">
+			<div class="full-width navLateral-body-logo text-center tittles">
+				<i class="zmdi zmdi-close btn-menu"></i> Inventario
+			</div>
+			<figure class="full-width" style="height: 77px;">
+				<div class="navLateral-body-cl">
+					<img src="images/tec.jpg" alt="Avatar" class="img-responsive">
+				</div>
+			
+			</figure>
+			<div class="full-width tittles navLateral-body-tittle-menu">
+				<i class="zmdi zmdi-desktop-mac"></i><span class="hide-on-tablet">&nbsp; DASHBOARD</span>
+			</div>
+			<nav class="full-width">
+				<ul class="full-width list-unstyle menu-principal">
+					<li class="full-width">
+						<a href="home.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-view-dashboard"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								HOME
+							</div>
+						</a>
+					</li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="#!" class="full-width btn-subMenu">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-case"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								ADMINISTRACION
+							</div>
+							<span class="zmdi zmdi-chevron-left"></span>
+						</a>
+						<ul class="full-width menu-principal sub-menu-options">
+							<li class="full-width">
+								<a href="company.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-balance"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										COMPAÑIA
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
+								<a href="providers.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-truck"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										PROVEEDORES
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
+								<a href="payments.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-card"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										PAGOS
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
+								<a href="categories.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-label"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										CATEGORIAS
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="#!" class="full-width btn-subMenu">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-face"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								USUARIOS
+							</div>
+							<span class="zmdi zmdi-chevron-left"></span>
+						</a>
+						<ul class="full-width menu-principal sub-menu-options">
+							<li class="full-width">
+								<a href="admin.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										ADMINISTRADORES
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
+								<a href="client.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-accounts"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										CLIENTE
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="laboratorio_quimica.php" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-washing-machine"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								PRODUCTOS
+							</div>
+						</a>
+					</li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="sales.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-shopping-cart"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								VENTAS
+							</div>
+						</a>
+					</li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="inventory.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								INVENTARIO
+							</div>
+						</a>
+					</li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="#!" class="full-width btn-subMenu">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-wrench"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								AJUSTES
+							</div>
+							<span class="zmdi zmdi-chevron-left"></span>
+						</a>
+						<ul class="full-width menu-principal sub-menu-options">
+							<li class="full-width">
+								<a href="#!" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-widgets"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										OPCIONES
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
+								<a href="#!" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-widgets"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										OPCION
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+	<!-- pageContent -->
+	<section class="full-width pageContent">
+		<section class="full-width header-well">
+			<div class="full-width header-well-icon">
+				<i class="zmdi zmdi-store"></i>
+			</div>
+			<div class="full-width header-well-text">
+				<h3></H1><p class="text-condensedLight">
+LABORATORIO QUIMICA				</p></h3>
+			</div>
+		</section>
+		<div class="full-width divider-menu-h"></div>
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+					<thead>
+						
+					</thead>
+					<tbody>
+						<style>
+							table {
+								border-collapse: separate; /* Permite espaciar las columnas */
+								border-spacing: 20px; /* Espacio entre las columnas */
+							}
+							th, td {
+								padding: 15px 25px; /* Espacio interno en las celdas (vertical, horizontal) */
+								text-align: left; /* Alineación del texto */
+							}
+						</style>
+						<center><table>
+							<thead>
+								<tr>
+									<th class="mdl-data-table__cell--non-numeric">Name</th>
+									<th>Code</th>
+									<th>Stock</th>
+									<th>Capacidad</th>
+									<th>Options</th>
+								</tr>
+		
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Bureta de vidrio</td>
+									<td>Bureta</td>
+									<td>2</td>
+									<td>50 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Condensador de flujo</td>
+									<td>Condensador</td>
+									<td>1</td>
+									<td></td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Cono decantador</td>
+									<td>Cono</td>
+									<td>3</td>
+									<td>1 lt</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Embudo de separación</td>
+									<td>Embudo</td>
+									<td>1</td>
+									<td></td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Embudo de Vidrio</td>
+									<td>Embudo de Vidrio</td>
+									<td>7</td>
+									<td></td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Espectrómetro</td>
+									<td>Espectrómetro</td>
+									<td>3</td>
+									<td></td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Matraz de destilación</td>
+									<td>Matraz</td>
+									<td>1</td>
+									<td>1 lt</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Matraz Erlenmeyer</td>
+									<td>Erlenmeyer</td>
+									<td>6</td>
+									<td>500 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Matraz Erlenmeyer</td>
+									<td>Erlenmeyer</td>
+									<td>9</td>
+									<td>300 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Matraz Erlenmeyer</td>
+									<td>Erlenmeyer</td>
+									<td>13</td>
+									<td>250 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Matraz de filtración</td>
+									<td>Filtración</td>
+									<td>4</td>
+									<td>4 lts</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Matraz de filtración</td>
+									<td>Filtración</td>
+									<td>11</td>
+									<td>1 lt</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Matraz de filtración</td>
+									<td>Filtración</td>
+									<td>3</td>
+									<td>250 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Matraz volumétrico</td>
+									<td>Volumétrico</td>
+									<td>21</td>
+									<td>1 lt</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Matraz volumétrico</td>
+									<td>Volumétrico</td>
+									<td>36</td>
+									<td>500 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Matraz volumétrico</td>
+									<td>Volumétrico</td>
+									<td>5</td>
+									<td>250 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Matraz volumétrico</td>
+									<td>Volumétrico</td>
+									<td>2</td>
+									<td>100 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Matraz volumétrico</td>
+									<td>Volumétrico</td>
+									<td>35</td>
+									<td>50 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Matraz volumétrico</td>
+									<td>Volumétrico</td>
+									<td>4</td>
+									<td>10 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Mechero de Bunsen</td>
+									<td>Mechero</td>
+									<td>10</td>
+									<td></td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Multímetro</td>
+									<td>Multímetro</td>
+									<td>10</td>
+									<td></td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Perillas de agua destilada</td>
+									<td>Perillas</td>
+									<td>10</td>
+									<td></td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Pinzas para Bureta</td>
+									<td>Pinzas Bureta</td>
+									<td>5</td>
+									<td></td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Pinzas para tubo de ensayo</td>
+									<td>Pinzas Ensayo</td>
+									<td>17</td>
+									<td></td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Pipeta aforada</td>
+									<td>Pipeta</td>
+									<td>3</td>
+									<td>50 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Pipeta de reloj</td>
+									<td>Pipeta</td>
+									<td>14</td>
+									<td></td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Probeta graduada</td>
+									<td>Probeta</td>
+									<td>9</td>
+									<td>1000 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Probeta graduada</td>
+									<td>Probeta</td>
+									<td>6</td>
+									<td>500 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Probeta graduada</td>
+									<td>Probeta</td>
+									<td>7</td>
+									<td>250 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Probeta graduada</td>
+									<td>Probeta</td>
+									<td>9</td>
+									<td>100 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Probeta graduada</td>
+									<td>Probeta</td>
+									<td>13</td>
+									<td>50 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Probeta graduada</td>
+									<td>Probeta</td>
+									<td>9</td>
+									<td>25 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Probeta graduada</td>
+									<td>Probeta</td>
+									<td>2</td>
+									<td>10 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Termómetro de inmersión</td>
+									<td>Termómetro</td>
+									<td>1</td>
+									<td></td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Tubo de ensayo</td>
+									<td>Tubo de ensayo</td>
+									<td>67</td>
+									<td></td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Vaso de precipitado</td>
+									<td>Vaso</td>
+									<td>3</td>
+									<td>1000 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Vaso de precipitado</td>
+									<td>Vaso</td>
+									<td>6</td>
+									<td>400 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Vaso de precipitado</td>
+									<td>Vaso</td>
+									<td>16</td>
+									<td>250 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Vaso de precipitado</td>
+									<td>Vaso</td>
+									<td>6</td>
+									<td>150 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Vaso de precipitado</td>
+									<td>Vaso</td>
+									<td>19</td>
+									<td>100 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">Vaso de precipitado</td>
+									<td>Vaso</td>
+									<td>10</td>
+									<td>50 ml</td>
+									<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+								</tr>
+						
+					</tbody>
+				</table></center>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
